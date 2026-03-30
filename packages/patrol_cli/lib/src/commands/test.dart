@@ -253,6 +253,10 @@ See https://github.com/leancodepl/patrol/issues/1316 to learn more.
 
     if (!boolArg('build')) {
       _logger.info('Skipping build step (--no-build)');
+      if (device.targetPlatform == TargetPlatform.android) {
+        await _androidTestBackend
+            .loadJavaPathFromFlutterDoctor(flutterOpts.command);
+      }
     } else {
       await _build(androidOpts, iosOpts, macosOpts, device);
     }
