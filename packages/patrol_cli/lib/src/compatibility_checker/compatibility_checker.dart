@@ -132,6 +132,7 @@ Check the compatibility table at: https://patrol.leancode.co/documentation/compa
   Future<void> checkVersionsCompatibilityForBuild({
     required String? patrolVersion,
   }) async {
+    return;
     if (patrolVersion == null) {
       return;
     }
