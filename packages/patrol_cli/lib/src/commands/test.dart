@@ -61,6 +61,7 @@ class TestCommand extends PatrolCommand {
     usesClearTestSteps();
 
     usesUninstallOption();
+    usesNoBuildOption();
 
     usesAndroidOptions();
     usesIOSOptions();
@@ -250,7 +251,11 @@ See https://github.com/leancodepl/patrol/issues/1316 to learn more.
       testServerPort: super.testServerPort,
     );
 
-    await _build(androidOpts, iosOpts, macosOpts, device);
+    if (!boolArg('build')) {
+      _logger.info('Skipping build step (--no-build)');
+    } else {
+      await _build(androidOpts, iosOpts, macosOpts, device);
+    }
     await _preExecute(androidOpts, iosOpts, macosOpts, device, uninstall);
 
     if (coverageEnabled) {

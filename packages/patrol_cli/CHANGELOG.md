@@ -1,3 +1,7 @@
+## 3.6.1
+
+- Add `--no-build` flag to `patrol test` to skip the build step and use previously built binaries.
+
 ## 3.6.0
 
 - Improve patrol test error messaging when compatibility check fails, added same compatibility check and error messaging to patrol build command (#2597)
