@@ -479,6 +479,7 @@ To install a specific version of Patrol CLI, run:
     required String latestVersion,
     required String maxCompatibleCliVersion,
   }) async {
+    return;
     final latestVersionParsed = Version.parse(latestVersion);
 
     if (latestVersionParsed > Version.parse(currentVersion)) {
